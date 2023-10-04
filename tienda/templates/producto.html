@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block categorias  %}
+{% for categoria in category_list %}
+        <a href="/tienda/categoria/{{ categoria.id }}" class="list-group-item">{{ categoria.nombre }}</a>
+    {% endfor%}
+{% endblock %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container mt-5 card bg-light shadow-lg">
+        <div class="card-header bg-dark text-white">
+            <h2 class="card-title">Detalles de {{ producto.nombre }}</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h4 class="card-subtitle mb-2">Nombre del Producto</h4>
+                    <p class="card-text">{{ producto.nombre }}</p>
+    
+                    <h4 class="card-subtitle mb-2">Precio</h4>
+                    <p class="card-text">S/. {{ producto.precio }}</p>
+    
+                    <h4 class="card-subtitle mb-2">Fecha de Publicación</h4>
+                    <p class="card-text">{{ producto.pub_date }}</p>
+    
+                    <h4 class="card-subtitle mb-2">Categoría</h4>
+                    <p class="card-text">{{ producto.categoria.nombre }}</p>
+    
+                    <h4 class="card-subtitle mb-2">Stock</h4>
+                    <p class="card-text"> {{ producto.stock }} unidades disponibles</p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}
