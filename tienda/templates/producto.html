@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block categorias  %}
 {% for categoria in category_list %}
-        <a href="/tienda/categoria/{{ categoria.id }}" class="list-group-item">{{ categoria.nombre }}</a>
+        <a href="/tienda/categorias/{{ categoria.id }}" class="list-group-item">{{ categoria.nombre }}</a>
     {% endfor%}
 {% endblock %}
 {% block content %}
